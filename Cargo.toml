@@ -1,0 +1,7 @@
+[package]
+name = "nickel_trial"
+version = "0.1.0"
+authors = ["OKAZAKI Yasuo <cohyou@ironoir.io>"]
+
+[dependencies]
+nickel = "0.9.0"
