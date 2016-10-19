@@ -5,8 +5,30 @@
 use std::collections::HashMap;
 use nickel::{Nickel, HttpRouter, StaticFilesHandler};
 
+/*
+BriqsDBでの'Briq'という概念は、最初はコンスセルの別名に過ぎなかったのだが、
+文字列や任意のバイト列をそれで表現したいと思った時に、'128bitの塊'という役割も背負うことになった。
+そのせいで、自分の中で混乱が生じているのだ。
+
+果たして、上記のどちらの概念が、よりプリミティブなのか？
+*/
+trait Piq {
+    fn p(&self);
+    fn q(&self);
+}
+
+/*
+ということで、基本はポインタとなる64bitの塊ということにしました。
+上記のどちらの概念の間に、あるもの。dominoにこだわるのは、少しやめる感じでしょうか。
+*/
+struct Omino {
+    bytes: [u8; 8]
+}
+
 fn main() {
     let mut server = Nickel::new();
+
+    let o = Omino { bytes:[0; 8] };
 
      /*
      server.utilize(router! {
