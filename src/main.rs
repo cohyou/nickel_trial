@@ -21,14 +21,25 @@ trait Piq {
 ということで、基本はポインタとなる64bitの塊ということにしました。
 上記のどちらの概念の間に、あるもの。dominoにこだわるのは、少しやめる感じでしょうか。
 */
-struct Omino {
+struct Briq {
     bytes: [u8; 8]
+}
+
+struct Omino1 {
+    briq: Briq
+}
+
+struct Omino2 {
+    p: Briq,
+    q: Briq,
 }
 
 fn main() {
     let mut server = Nickel::new();
 
-    let o = Omino { bytes:[0; 8] };
+    let o1 = Omino1 { briq: Briq { bytes: [0; 8] } };
+
+    let o2 = Omino2 { p: Briq { bytes: [0; 8] }, q: Briq { bytes: [0; 8] } };
 
      /*
      server.utilize(router! {
