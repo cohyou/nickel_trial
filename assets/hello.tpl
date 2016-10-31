@@ -6,6 +6,10 @@
 </head>
 <body>
   <h1>A Simple Mustache Demo</h1>
+  <form >
+    <input type="text"></input>
+    <button type="submit">push!</button>
+  </form>
     <h4>Product Info: {{name}}</h4>
     <ul>
       <li>Product: {{name}}</li>
